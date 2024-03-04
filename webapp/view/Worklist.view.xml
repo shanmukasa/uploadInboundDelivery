@@ -4,22 +4,16 @@
     <Page id="page" title="{i18n>title}" xmlns:core="sap.ui.core" titleAlignment="Auto">
         <content>
      <VBox id="idVBox" class="sapUiSmallMarginBegin sapUiSmallMarginEnd sapUiSmallMarginTop" >
-            <!-- <Panel id="idPanelTabel"> -->
             <Table id="idTable" items="{tableModel>/}" popinLayout="GridLarge" fixedLayout="false" alternateRowColors="true" sticky="HeaderToolbar,ColumnHeaders" >
              <headerToolbar>
                  <OverflowToolbar id="idFlowbar">
 				<content>
-					 <FlexBox id="idflexBox" justifyContent="Start" alignContent="Start">
-            <Label id="idLabel" text="{i18n>uploadLabel}" design="Bold" class="sapUiSmallMargin"></Label>
+            <Label id="idLabel" text="{i18n>uploadLabel}" design="Bold"></Label>
             <u:FileUploader id="idfileUploader"
                         sameFilenameAllowed="false" placeholder="Choose a file"
                         style="Emphasized" width="300px">
                         </u:FileUploader>
-                        <Button id="idUploadButton" type="Emphasized" text="{i18n>importButtonText}" press="_handleImport" class="sapUiSmallMarginBegin"></Button>
-            </FlexBox>
-            <!-- <ToolbarSeparator ></ToolbarSeparator> -->
-            <!-- <ToolbarSpacer id="toolbarspacer"></ToolbarSpacer> -->
-            <!-- <SearchField id="search"></SearchField> -->
+                        <Button id="idUploadButton" type="Emphasized" text="{i18n>importButtonText}" press="_handleImport"></Button>
 				</content>
 			</OverflowToolbar>
              </headerToolbar>
