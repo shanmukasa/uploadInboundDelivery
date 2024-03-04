@@ -1,0 +1,95 @@
+<mvc:View controllerName="com.tmca.zuploadinbounddelivery.controller.Worklist"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:u="sap.ui.unified" xmlns:l="sap.ui.layout.form" xmlns:g="sap.ui.layout">
+    <Page id="page" title="{i18n>title}" xmlns:core="sap.ui.core" titleAlignment="Auto">
+        <content>
+     <VBox id="idVBox" class="sapUiSmallMarginBegin sapUiSmallMarginEnd sapUiSmallMarginTop" >
+            <!-- <Panel id="idPanelTabel"> -->
+            <Table id="idTable" items="{tableModel>/}" popinLayout="GridLarge" fixedLayout="false" alternateRowColors="true" sticky="HeaderToolbar,ColumnHeaders" >
+             <headerToolbar>
+                 <OverflowToolbar id="idFlowbar">
+				<content>
+					 <FlexBox id="idflexBox" justifyContent="Start" alignContent="Start">
+            <Label id="idLabel" text="{i18n>uploadLabel}" design="Bold" class="sapUiSmallMargin"></Label>
+            <u:FileUploader id="idfileUploader"
+                        sameFilenameAllowed="false" placeholder="Choose a file"
+                        style="Emphasized" width="300px">
+                        </u:FileUploader>
+                        <Button id="idUploadButton" type="Emphasized" text="{i18n>importButtonText}" press="_handleImport" class="sapUiSmallMarginBegin"></Button>
+            </FlexBox>
+            <!-- <ToolbarSeparator ></ToolbarSeparator> -->
+            <!-- <ToolbarSpacer id="toolbarspacer"></ToolbarSpacer> -->
+            <!-- <SearchField id="search"></SearchField> -->
+				</content>
+			</OverflowToolbar>
+             </headerToolbar>
+                <items>
+                    <ColumnListItem id="idColumnListItem">
+                        <cells>
+                            <Text id="idsupply" text="{tableModel>SupplierCode}" ></Text>
+                            <Text id="idcaseNum" text="{tableModel>CaseNumber}" ></Text>
+                            <Text id="idpoNum" text="{tableModel>PONumber}" textAlign="Center" ></Text>
+                            <Text id="idItemNum" text="{tableModel>ItemNumber}" textAlign="Center" ></Text>
+                            <Text id="idDepot" text="{tableModel>Depot}" textAlign="Center" ></Text>
+                            <Text id="idDevPartNum" text="{tableModel>DeliveryPartNumber}" ></Text>
+                            <Text id="idordPartNum" text="{tableModel>OrderPartNumber}" ></Text>
+                            <Text id="idTransBy" text="{tableModel>TransportationBy}" ></Text>
+                            <Text id="idDelvNot" text="{tableModel>DeliveryNote}" ></Text>
+                            <Text id="idDelvDate" text="{path: 'tableModel>DeliveryDate', formatter: '.formatter.DeliveryDategState'}" ></Text>
+                            <Text id="idQty" text="{tableModel>Quantity}" textAlign="End" ></Text>
+                            <Text id="idStlg" text="{tableModel>DedMixCtnStlge}" ></Text>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+                <columns>
+                <Column id="idSupplyColumn" width="9%">
+                        <Label id="idSupplyLabel" text="{i18n>SupplierCodeLabel}" wrapping="true"></Label>
+                    </Column>
+                    <Column id="idCaseColumn" minScreenWidth="Desktop" demandPopin="true">
+                        <Label id="idCaseLabel" text="{i18n>CaseNumberLabel}" wrapping="true"></Label>
+                    </Column>
+                    <Column id="idPoNumColumn" minScreenWidth="Desktop" demandPopin="true" >
+                        <Label id="idPoNumLabel" text="{i18n>PONumberLabel}" wrapping="true"></Label>
+                    </Column>
+                    <Column id="idItemNumColumn" minScreenWidth="Desktop" demandPopin="true">
+                        <Label id="idItemNumLabel" text="{i18n>ItemNumberLabel}" wrapping="true"></Label>
+                    </Column>
+                    <Column width="7%" id="idDepotColumn" minScreenWidth="Desktop" demandPopin="true">
+                        <Label id="idDepotLabel" text="{i18n>DepotLabel}"></Label>
+                    </Column>
+                    <Column id="idDPNColumn" minScreenWidth="Desktop" demandPopin="true">
+                        <Label id="idDPNLabel" text="{i18n>DeliveryPartNumberLabel}" wrapping="true"></Label>
+                    </Column>
+                    <Column id="idOPNColumn" minScreenWidth="Desktop" demandPopin="true">
+                        <Label id="idOPNLabel" text="{i18n>OrderedPartNumberLabel}" wrapping="true"></Label>
+                    </Column>
+                    <Column id="idTransByColumn" minScreenWidth="Desktop" demandPopin="true">
+                        <Label id="idTrnasByLabel" text="{i18n>TransportaionByLabel}" wrapping="true"></Label>
+                    </Column>
+                    <Column id="idDNcolumn" width="9%" minScreenWidth="Desktop" demandPopin="true">
+                        <Label id="idDNLabel" text="{i18n>DeliveryNoteLabel}" wrapping="true"></Label>
+                    </Column>
+                    <Column id="idDDcolumn"  minScreenWidth="Desktop" demandPopin="true">
+                        <Label id="idDDLabel" text="{i18n>DeliveryDateLabel}" wrapping="true"></Label>
+                    </Column>
+                    <Column id="idQtyColumn" minScreenWidth="Desktop" demandPopin="true">
+                        <Label id="idQtyLabel" text="{i18n>QuantityLabel}" wrapping="true"></Label>
+                    </Column>
+                    <Column id="idSTLGEColumn" minScreenWidth="Desktop" demandPopin="true">
+                        <Label id="idSTLGELabel" text="{i18n>DedMixctnstlgeLabel}" wrapping="true"></Label>
+                    </Column>
+                </columns>
+            </Table>
+     </VBox>
+            <!-- </Panel> -->
+        </content>
+        <footer>
+        <Bar id="idBar">
+        <contentRight>
+        <Button id="idtest" text="{i18n>TestRunButtonText}" type="Emphasized" press="_handleTest_Execute"></Button>
+        <Button id="idExecute" text="{i18n>ExecuteButtonText}" type="Emphasized" press="_handleTest_Execute"></Button>
+        </contentRight>
+        </Bar>
+        </footer>
+    </Page>
+</mvc:View>

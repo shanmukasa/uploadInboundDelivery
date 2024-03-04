@@ -1,0 +1,54 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core" class="sapUiSizeCompact">
+	<Dialog
+		id="idMessageDialog"
+		title="{i18n>Message}" class="sapUiSizeCompact" titleAlignment="Center">
+		<content>
+			 <Table id="Table" items="{/}" alternateRowColors="true" popinLayout="GridSmall">
+                <items>
+                    <ColumnListItem id="ColumnListItem">
+                        <cells>
+                            <Text id="idItemNo" text="{ItemNumber}" textAlign="Center"></Text>
+                            <Text id="idMesgid" text="{DeliveryNumber}" textAlign="Center"></Text>
+                            <Text id="idpoNo" text="{PONumber}" textAlign="Center"></Text>
+                            <!-- <Text id="idMsg" text="{Msg}" textAlign="Center"></Text> -->
+								<ObjectStatus id="idMsg" text="{Msg}" icon="{path: 'MsgType', formatter: '.formatter.icon'}" state="{
+										path: 'MsgType',
+										formatter: '.formatter.MsgState'
+									}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+                <columns>
+                <Column id="idItemNoColumn">
+                        <Text id="idItemNoLabel" text="{i18n>ItemNumberLabel}"></Text>
+                    </Column>
+                    <Column id="idMesgidColumn" minScreenWidth="Desktop" demandPopin="true">
+                        <Text id="idMesgidLabel" text="{i18n>DeliveryNumber}"></Text>
+                    </Column>
+                    <Column id="idpoNoColumn" minScreenWidth="Desktop" demandPopin="true" >
+                        <Text id="idpoNoLabel" text="{i18n>PONumberLabel}"></Text>
+                    </Column>
+                    <Column id="idMsgColumn" minScreenWidth="Desktop" demandPopin="true">
+                        <Text id="idMsgLabel" text="{i18n>Msg}"></Text>
+                    </Column>
+                </columns>
+            </Table>	      
+		</content>
+		<footer>
+			<Toolbar id="idToolbar">
+				<content>
+					<ToolbarSpacer id="idToolbarspacer"/>
+					<Button id="idDownload"
+							text="{i18n>DownloadButtonText}" icon="sap-icon://download" press="onExport"/>
+                            <Button id="idcls"
+							text="{i18n>closeButtonText}" press="handleClose"/>
+				</content>
+			</Toolbar>
+		</footer>
+	</Dialog>
+</core:FragmentDefinition>
